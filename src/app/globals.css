@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  /* --primary: #649B27; */
+  --primary-hover: #5ea500;
+  --primary: #78B62A; 
+  
+  --primary-bg: #4D8217;  
+  --primary-text: #376213;
+  --primary-cover-bg: #e7f0d7;
+
+  --menu-bg: #f2f5ed;
+  --primary-hover-opc: #5ea50030;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --text-primary:#ffffff;
+  --background: #ffffff;
+  --bg-light-gray: #F4F4F5;
+
+   --font-badge-md: 23px;
+   --font-badge-xl: 90px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  width: max-content;
+  animation: scroll 25s linear infinite;
+}
