@@ -7,10 +7,10 @@ import { aboutHeroStats } from "../../data/about";
 export default function AboutHero() {
   return (
     <section className="relative overflow-hidden py-10 lg:py-15">
-      <div className="mx-auto max-w-[80%] px-6">
+      <div className="mx-auto max-w-[90%] lg:max-w-[80%] px-6">
         <div className="grid items-center gap-16 lg:grid-cols-2">
           {/* Left */}
-          <div className="md:text-center lg:text-left">
+          <div className="text-center lg:text-left">
             <span className="text-lg md:text-xl lg:text-[20px] text-[var(--primary-text)] font-semibold uppercase tracking-wide mb-4">
               About Us
             </span>

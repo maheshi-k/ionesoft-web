@@ -12,6 +12,7 @@ export default function ContactHero() {
           width={700}
           height={750}
           className="h-full w-full rounded-3xl object-cover"
+          priority
         />
       </div>
 

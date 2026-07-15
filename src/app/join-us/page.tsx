@@ -79,7 +79,7 @@ export default function CareerPage() {
           />
 
           <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 py-16 lg:grid-cols-2 lg:py-20">
-            <div>
+            <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
               <span className="font-semibold text-[var(--primary-text)]">
                 {careerData.hero.eyebrow}
               </span>
@@ -95,10 +95,10 @@ export default function CareerPage() {
                 {careerData.hero.description}
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-col items-center gap-4 lg:flex-row lg:items-stretch lg:justify-start">
                 <Link
                   href={careerData.hero.primaryButton.href}
-                  className="inline-flex items-center gap-2 rounded-xl bg-[var(--primary-bg)] px-7 py-4 font-semibold text-white"
+                  className="inline-flex w-[240px] items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-[var(--primary-bg)] px-7 py-4 font-semibold text-white"
                 >
                   {careerData.hero.primaryButton.text}
                   <ChevronDown size={18} />
@@ -106,7 +106,7 @@ export default function CareerPage() {
 
                 <Link
                   href={careerData.hero.secondaryButton.href}
-                  className="rounded-xl border border-[var(--primary-bg)] px-7 py-4 font-semibold text-[var(--primary-text)]"
+                  className="inline-flex w-[240px] items-center justify-center whitespace-nowrap rounded-xl border border-[var(--primary-bg)] px-7 py-4 font-semibold text-[var(--primary-text)]"
                 >
                   {careerData.hero.secondaryButton.text}
                 </Link>
@@ -230,7 +230,7 @@ export default function CareerPage() {
         </section>
 
         {/* CTA */}
-        <section className="mt-20 relative overflow-hidden h-[340px]">
+        <section className="mt-10 lg:mt-20 relative overflow-hidden h-[370px] lg:h-[340px]">
           <Image
             src={careerData.cta.image}
             alt={careerData.cta.title}
@@ -241,7 +241,7 @@ export default function CareerPage() {
 
           <div className="absolute md:inset-0 md:bg-white/50 lg:bg-white/20 " />
 
-          <div className="relative mx-auto flex min-h-[420px] max-w-7xl md:items-center px-6 py-20">
+          <div className="relative mx-auto flex min-h-[420px] max-w-7xl md:items-center px-6 py-10 lg:py-20">
             <div className="max-w-2xl">
               <h2 className="text-4xl font-bold leading-tight text-gray-900">
                 {careerData.cta.title}

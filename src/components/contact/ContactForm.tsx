@@ -38,19 +38,35 @@ export default function ContactForm() {
           />
         </div>
 
-        <select className="w-full rounded-lg border px-4 py-3 outline-none focus:border-[#78B62A]">
-          <option>{contactData.form.fields.service}</option>
+        <div>
+          <label
+            htmlFor="service"
+            className="mb-2 block text-sm font-medium text-gray-700"
+          >
+            {contactData.form.fields.service}
+          </label>
 
-          {contactData.form.options.map((group) => (
-            <optgroup key={group.label} label={group.label}>
-              {group.items.map((item) => (
-                <option key={item.value} value={item.value}>
-                  {item.label}
-                </option>
-              ))}
-            </optgroup>
-          ))}
-        </select>
+          <select
+            id="service"
+            name="service"
+            defaultValue=""
+            className="w-full rounded-lg border px-4 py-3 outline-none focus:border-[#78B62A]"
+          >
+            <option value="" disabled>
+              Select a product or service
+            </option>
+
+            {contactData.form.options.map((group) => (
+              <optgroup key={group.label} label={group.label}>
+                {group.items.map((item) => (
+                  <option key={item.value} value={item.value}>
+                    {item.label}
+                  </option>
+                ))}
+              </optgroup>
+            ))}
+          </select>
+        </div>
 
         <textarea
           rows={6}
