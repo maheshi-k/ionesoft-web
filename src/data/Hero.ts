@@ -6,7 +6,7 @@ export const heroData = {
     line2: "",
   },
   description:
-    "Custom software, AI solutions, and IT services—built for the future. We create intelligent solutions to drive your success. Turning complex challenges into simple, scalable solutions",
+    "Custom software, AI solutions, and IT services—built for the future. We create intelligent solutions to drive your success. Turning complex challenges into simple, scalable solutions. ",
   primaryButton: {
     label: "Start a Project",
     url: "/contact",
