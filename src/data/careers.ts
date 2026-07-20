@@ -105,7 +105,7 @@ export const careerData = {
 
     button: {
       text: "Contact Us",
-      href: "mailto:info@ionesoftsolutions.com",
+      href: "/contact",
     },
   },
 };

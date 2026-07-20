@@ -14,17 +14,17 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     subtitle: "Our Services",
     heroImage: "/images/service/ST-hero.webp",
     description:
-      "From consulting to development, our services are designed to empower your business with innovation, efficiency, and long-term growth",
-    primaryButtonText: "Request For Demo",
-    primaryButtonHref: "/demo",
+      "From consulting to development, our services are designed to empower your business with innovation, efficiency, and long-term growth.",
+    primaryButtonText: "Explore Solutions",
+    primaryButtonHref: "/products",
 
-    secondaryButtonText: "Learn More",
-    secondaryButtonHref: "/sts",
+    // secondaryButtonText: "Get in Touch",
+    // secondaryButtonHref: "/contact",
     sections: [
       {
         title: "What is Smart Technology?",
         description:
-          "What is Smart Technology and what are its Benefits / The term “SMART”  originally comes from the acronym  “Self-Monitoring, Analysis and Reporting Technology”",
+          "The term 'SMART' originally comes from the acronym 'Self-Monitoring, Analysis and Reporting Technology'.",
         image: "/images/service/wst.webp",
         imagePosition: "left",
         lists: [
@@ -43,16 +43,21 @@ export const serviceDetails: Record<string, ServiceDetail> = {
               "Smart Lockers",
               "Way Finder",
               "Self Service Wi-Fi Provision",
+              "Room/Hot Desk Booking",
+              "Mobile App to Manage Requests",
+              "Car Park Occupancy & Analytics",
+              "Office Space Occupancy, Ambience & Energy Management",
             ],
           },
           {
             title: "Benefits of AI and IOT",
             items: [
-              "Monitor and manage day to day operations.",
-              "Increase operational efficiency.",
-              "Manpower productivity.",
-              "With centralized alert management through Sensors able to contain accident and take quick action/decision immediately.",
-              "Better visualization and data analytics for better decision making",
+              "Monitor Day-to-Day Operations",
+              "Increase Operational Efficiency",
+              "Improve Workforce Productivity",
+              "Centralized Sensor Alerts",
+              "Visualization & Data Analytics",
+              "Optimize Energy & Space Usage",
             ],
           },
         ],
@@ -67,8 +72,8 @@ export const serviceDetails: Record<string, ServiceDetail> = {
             image: "/images/service/vms.webp",
             imagePosition: "right",
             items: [
-              "Leenira Visitor Management System Integrated with Office 365",
-              "Visitor receives meeting invite",
+              "Leenira Visitor Management System Integrated with Office 365.",
+              "Visitor receives meeting invite.",
               "Self-check in with QR code, temperature, and Face recognition.",
               "Visitor dashboard and summary.",
               "Integration with access control with Gantry.",
@@ -83,8 +88,8 @@ export const serviceDetails: Record<string, ServiceDetail> = {
             items: [
               "Integration with Visitor Management System.",
               "Auto Allocate to visitors upon check in.",
-              "Modular and scalable solution",
-              "Intelligent storage",
+              "Modular and scalable solution.",
+              "Intelligent storage.",
               "Contact free delivery.",
               "Traditional way of lockers – Pin / QR code / RFID card. ",
               "IT Asset Management.",
@@ -95,18 +100,18 @@ export const serviceDetails: Record<string, ServiceDetail> = {
           {
             title: "Way Finder",
             description:
-              "Integrated with Room Booking system (Creston).Way Finder offers a range of options to facilitate the flow of information.",
+              "Integrated with the Room Booking System (Creston). Way Finder offers a range of options to facilitate the flow of information.",
             image: "/images/service/WF.webp",
             imagePosition: "right",
             items: [
-              "Guides Visitor and staff the room location.",
-              "Upcoming meetings and users.",
-              "Display on Digital Display Maps.",
-              "Ongoing and upcoming meetings.",
-              "Meeting details..",
-              "Floor plan of the level.",
-              "Remote Control.",
-              "Listing of scheduled meetings for the day",
+              "Guides visitors and staff to room locations.",
+              "Displays upcoming meetings and attendees.",
+              "Displays digital floor maps.",
+              "Shows ongoing and upcoming meetings.",
+              "Displays meeting details.",
+              "Shows the floor plan of the level.",
+              "Supports remote control.",
+              "Lists scheduled meetings for the day.",
             ],
           },
 
@@ -118,6 +123,57 @@ export const serviceDetails: Record<string, ServiceDetail> = {
             items: [
               "Visitor can self-sign with their Visitor ID and Email.",
               "Audit logs in Cisco.",
+            ],
+          },
+
+          {
+            title: "Room / Hot Desk Booking",
+            description:
+              "Integrated with Office 365 and Crestron room booking panels for real-time room availability, scheduling, and workspace management.",
+            image: "/images/service/hot-desk.webp",
+            imagePosition: "right",
+            items: [
+              "Real-Time Room Booking & Status Updates",
+              "Integrated with Office 365 & Crestron",
+              "Book Meeting Rooms & Hot Desks",
+              "Invite Visitors & Sync with Visitor Management",
+              "Start, End or Extend Meetings from Booking Panels",
+              "Occupancy & IAQ Sensor Integration",
+              "Occupancy Analytics & Reporting",
+              "Ambience & Energy Management",
+            ],
+          },
+
+          {
+            title: "Mobile App to Manage Requests",
+            description:
+              "A mobile application that enables employees and visitors to manage workplace resources efficiently with real-time booking and availability.",
+            image: "/images/service/mobile-app.svg",
+            imagePosition: "left",
+            items: [
+              "Book Meeting Rooms",
+              "Book Time Slots",
+              "Real-Time Room Availability",
+              "Meeting Room Occupancy Tracking",
+              "View Room Features & Amenities",
+            ],
+          },
+
+          {
+            title: "Car Park Occupancy & Analytics",
+            description:
+              "A smart parking management solution that provides real-time parking availability, occupancy monitoring, and AI-powered vehicle analytics.",
+            image: "/images/service/car-park.svg",
+            imagePosition: "right",
+            items: [
+              "Real-Time Parking Availability",
+              "Car Plate Recognition (ANPR)",
+              "AI Camera & Sensor Integration",
+              "Carbon Monoxide Level Analytics",
+              "Digital Parking Experience",
+              "Parking Occupancy Monitoring",
+              "Optimized Parking Allocation",
+              "Real-Time Parking Insights",
             ],
           },
         ],
@@ -133,10 +189,11 @@ export const serviceDetails: Record<string, ServiceDetail> = {
             imagePosition: "right",
             items: [
               "Monitor and display real time temperature and humidity.",
-              "Detect the presence of people and monitor the activity level in particular area",
-              "Monitor air quality and redistribute the usage",
+              "Detect the presence of people and monitor the activity level in particular area.",
+              "Monitor air quality and redistribute the usage.",
               "Desks to rooms and open areas in the building occupancy details.",
               "Space utilization.",
+              "Wireless Sensors sends information to the system to analyse occupancy and Energy Saving Strategy.",
             ],
           },
 
@@ -148,8 +205,28 @@ export const serviceDetails: Record<string, ServiceDetail> = {
               "Monitor, control and conserve the energy usage. Identify and eliminate unnecessary energy usage to create a comfortable indoor environment.",
             items: [
               "Detect abnormal energy utilization.",
-              "Adjust through the devices and reduce the total energy consumption",
+              "Adjust through the devices and reduce the total energy consumption.",
               "Track monthly energy with Energy meter reader and individual power outlet.",
+              "Analyze by energy category and location.",
+              "Predict usage and redistribute energy.",
+              "Receive alert for any outage and sudden surge to react to events promptly.",
+              "HVAC (Heating, Ventilation, and air conditioning) loads are turned off when no person around in the rooms.",
+              "Demand Controlled Ventilation.",
+            ],
+          },
+
+          {
+            title: "HVAC Management",
+            description:
+              "A smart HVAC management solution that optimizes heating, ventilation, and air conditioning based on occupancy to improve comfort and energy efficiency.",
+            image: "/images/service/hvac.webp",
+            imagePosition: "right",
+            items: [
+              "Occupancy-Based HVAC Control",
+              "After-Hours AC Requests",
+              "Temperature Adjustment on Demand",
+              "Real-Time AHU Monitoring",
+              "Energy-Efficient Climate Management",
             ],
           },
         ],
@@ -210,7 +287,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     description:
       "iOnesoft Solutions Software Development Lifecycle (SDLC) Methodology is stringent to ensure that all of the necessary aspects of software development are addressed (e.g. requirements, design, quality assurance, etc.) and yet flexible enough to be customized to fit the needs by the project and client.",
     primaryButtonText: "Request For Demo",
-    primaryButtonHref: "/demo",
+    primaryButtonHref: "/contact",
 
     // secondaryButtonText: "Learn More",
     // secondaryButtonHref: "/sts",
@@ -224,7 +301,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
             title:
               "Our development practices and tools are from the best ideas in the field",
             items: [
-              "Definition of project-specific standards and terminology",
+              "Definition of project-specific standards and terminology;",
               "Use of code generation tools and standard frameworks;",
               "Storage of source code in robust, secure, networked, code repositories;",
               "Standard use of unit testing to detect issues and provide efficient regression testing;",
@@ -232,7 +309,8 @@ export const serviceDetails: Record<string, ServiceDetail> = {
               "Automated, continuous integration and build;",
               "Specialized performance, stress and security testing;",
               "Tracking of issues and test results; and",
-              "Robust code documentation, from comments in the code.",
+              "Robust code documentation, from comments in the code;",
+              "We provide customized solutions based on your business needs using .NET platforms and SQL databases.",
             ],
           },
         ],
@@ -301,7 +379,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     description:
       "Optimize your business operations with expert process analysis and consulting services. We identify inefficiencies, eliminate manual workflows, and recommend tailored digital solutions that improve productivity, reduce costs, and support sustainable business growth through process automation and continuous improvement.",
     primaryButtonText: "Request For Demo",
-    primaryButtonHref: "/demo",
+    primaryButtonHref: "/contact",
 
     // secondaryButtonText: "Learn More",
     // secondaryButtonHref: "/sts",
@@ -383,7 +461,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     description:
       "Build secure, scalable, and customized SharePoint applications that streamline collaboration, document management, workflow automation, and business processes while improving productivity across your organization.",
     primaryButtonText: "Request For Demo",
-    primaryButtonHref: "/demo",
+    primaryButtonHref: "/contact",
 
     // secondaryButtonText: "Learn More",
     // secondaryButtonHref: "/sts",
@@ -494,7 +572,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
       "We design and develop professional mobile responsive websites that adapt smoothly across desktops, tablets, and mobile devices, helping your business deliver a better user experience, build trust, and increase online conversions.",
 
     primaryButtonText: "Request For Demo",
-    primaryButtonHref: "/demo",
+    primaryButtonHref: "/contact",
 
     sections: [
       {

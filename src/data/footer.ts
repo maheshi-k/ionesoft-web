@@ -7,6 +7,7 @@ export const footerData = {
     description:
       "At iOneSoft Solutions, we provide desired and smart solutions to meet key business challenges and achieve specific outcomes.",
     logo: "/images/Logo.webp",
+    href: "/",
   },
 
   offices: [
@@ -20,7 +21,7 @@ export const footerData = {
       country: "Sri Lanka",
       address: "417, Rohana Wilathgamuwa Mawatha, Welivita Kaduwela, Sri Lanka",
       postalCode: "10640",
-      phone: ["(+94) 11 21 6050"],
+      phone: ["(+94) 11 21 60050"],
       email: "info@ionesoftsolutions.com",
     },
   ],

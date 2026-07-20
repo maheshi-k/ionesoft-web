@@ -12,12 +12,14 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-3">
           {/* Company */}
           <div>
-            <Image
-              src={footerData.company.logo}
-              alt={footerData.company.name}
-              width={170}
-              height={170}
-            />
+            <Link href={footerData.company.href}>
+              <Image
+                src={footerData.company.logo}
+                alt={footerData.company.name}
+                width={170}
+                height={170}
+              />
+            </Link>
 
             <p className="mt-5 max-w-md text-sm leading-7 text-gray-600">
               {footerData.company.description}
@@ -105,8 +107,8 @@ export default function Footer() {
         {/* Bottom */}
         <div className="flex flex-col items-center justify-between gap-4 text-center text-sm text-gray-500 md:flex-row">
           <p>
-            © {new Date().getFullYear()} iOneSoft Solutions. All Rights
-            Reserved.
+            Copyright © 2012-{new Date().getFullYear()} iOneSoft Solutions Pte
+            Ltd. All Rights Reserved.
           </p>
 
           <div className="flex gap-6">

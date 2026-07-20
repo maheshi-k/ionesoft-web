@@ -43,13 +43,15 @@ export async function generateMetadata({
   };
 }
 
-function BulletList({ items }: { items: string[] }) {
+function BulletList({
+  items,
+  className = "",
+}: {
+  items: string[];
+  className?: string;
+}) {
   return (
-    <ul
-      className={`mt-4 space-y-3 ${
-        items.length > 5 ? "md:columns-2 md:gap-10" : ""
-      }`}
-    >
+    <ul className={`mt-4 space-y-3 ${className}`}>
       {items.map((item) => (
         <li
           key={item}
@@ -66,7 +68,13 @@ function BulletList({ items }: { items: string[] }) {
   );
 }
 
-function ListBlock({ list }: { list: any }) {
+function ListBlock({
+  list,
+  multiColumn = false,
+}: {
+  list: any;
+  multiColumn?: boolean;
+}) {
   return (
     <div>
       {list.title && (
@@ -79,7 +87,14 @@ function ListBlock({ list }: { list: any }) {
         <p className="mb-4 leading-7 text-slate-600">{list.description}</p>
       )}
 
-      {list.items && <BulletList items={list.items} />}
+      {list.items && (
+        <BulletList
+          items={list.items}
+          className={
+            multiColumn ? "grid sm:grid-cols-2 lg:grid-cols-2 gap-x-8" : ""
+          }
+        />
+      )}
     </div>
   );
 }
@@ -144,9 +159,17 @@ function ServiceContent({ section }: { section: any }) {
             section.lists.length > 1 ? "md:grid-cols-2" : "grid-cols-1"
           }`}
         >
-          {section.lists.map((list: any, index: number) => (
-            <ListBlock key={index} list={list} />
-          ))}
+          {section.lists.map((list: any, index: number) => {
+            const fullWidth =
+              section.lists.length % 2 === 1 &&
+              index === section.lists.length - 1;
+
+            return (
+              <div key={index} className={fullWidth ? "md:col-span-2" : ""}>
+                <ListBlock list={list} multiColumn={fullWidth} />
+              </div>
+            );
+          })}
         </div>
       )}
     </div>
@@ -263,7 +286,7 @@ export default async function ServicePage({ params }: PageProps) {
       <main className="mx-auto w-full max-w-[75%] px-6 py-8 lg:py-0">
         {/* Hero */}
         <section className="grid items-center gap-8 lg:grid-cols-2">
-          <div>
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             <span className="font-semibold uppercase tracking-wide text-[var(--primary-text)]">
               {service.subtitle}
             </span>
@@ -287,6 +310,8 @@ export default async function ServicePage({ params }: PageProps) {
               {service.secondaryButtonText && (
                 <Link
                   href={service.secondaryButtonHref ?? "/demo"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="rounded-xl border border-[var(--primary-bg)] px-7 py-4 text-[var(--primary-text)] transition hover:bg-[#78B62A] hover:text-white"
                 >
                   {service.secondaryButtonText}

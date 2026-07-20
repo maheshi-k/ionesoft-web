@@ -146,7 +146,19 @@ export const productDetails: Record<string, ProductDetail> = {
             icon: CheckCircle2,
           },
           {
+            title: "Manage Salon Operations",
+            icon: CheckCircle2,
+          },
+          {
+            title: "Manage Finance & Payroll",
+            icon: CheckCircle2,
+          },
+          {
             title: "Plan Loyalty Programs",
+            icon: CheckCircle2,
+          },
+          {
+            title: "Manage Multi-Location Salons",
             icon: CheckCircle2,
           },
         ],
@@ -162,7 +174,7 @@ export const productDetails: Record<string, ProductDetail> = {
 
         media: {
           type: "youtube",
-          src: "",
+          src: "https://www.youtube.com/embed/mleT4FtUpXo",
         },
 
         imagePosition: "right",
@@ -171,9 +183,12 @@ export const productDetails: Record<string, ProductDetail> = {
           {
             title: "Key Features",
             items: [
-              "Manage your salon website",
+              "Manage Your Salon Website",
               "Online Appointment Management",
               "Appointment Scheduling",
+              "SMS & Email Appointment Reminders",
+              "Customer Database Management",
+              "Employee Management",
             ],
           },
         ],
@@ -381,10 +396,6 @@ export const productDetails: Record<string, ProductDetail> = {
               "Residential Care Facilities",
               "Schools",
               "Retail Outlets & Salons",
-            ],
-          },
-          {
-            items: [
               "Industrial & Commercial Buildings",
               "Shopping Malls & Supermarkets",
               "Healthcare & Clinics",
@@ -899,6 +910,152 @@ export const productDetails: Record<string, ProductDetail> = {
       robots: {
         index: false,
         follow: false,
+      },
+    },
+  },
+
+  cyber: {
+    title: "Cyber Cloud and Cyber Protection Services",
+    subtitle: "Integrated Data Protection and Cybersecurity",
+    heroImage: "/images/products/ccp-1.svg",
+
+    description:
+      "In today’s digital world, data is increasingly at the core of daily business operations, from small and medium-sized enterprises to multinational companies. Our cyber security services combine integrated data protection, cloud backup, malware protection, and ransomware defence in one reliable platform.",
+
+    primaryButtonText: "Get A Demo",
+    primaryButtonHref: "/contact",
+
+    sections: [
+      {
+        eyebrow: "Cyber Protection",
+
+        title: "Protect Your Business-Critical Data",
+
+        media: {
+          type: "image",
+          src: "/images/products/ccp-2.svg",
+        },
+
+        imagePosition: "left",
+
+        description:
+          "Cyber protection and Data Backup as a Service help protect real-time business data, applications, and systems from modern cyberattacks. The solution provides integrated protection against malware, ransomware, accidental data loss, system failures, and other digital threats.",
+      },
+
+      {
+        eyebrow: "Business Continuity",
+
+        title: "The New World of Threats",
+
+        media: {
+          type: "image",
+          src: "/images/products/ccp-3.svg",
+        },
+
+        imagePosition: "right",
+
+        description:
+          "Modern businesses face threats caused by natural events, human actions, hardware failures, software corruption, and cyberattacks. A reliable data protection strategy helps reduce downtime, protect sensitive information, and maintain business continuity.",
+
+        lists: [
+          {
+            title: "Natural Threats",
+
+            items: [
+              "Natural disasters such as hurricanes, tornadoes, and fires can cause serious downtime by affecting facilities and infrastructure.",
+              "Pandemics can disrupt employees and remote-working environments while increasing risks when business data and devices operate outside the regular IT infrastructure.",
+            ],
+          },
+
+          {
+            title: "Human and Technology Threats",
+
+            items: [
+              "Hardware failures and software corruption caused by power outages, failed software updates, or incorrect drive formatting.",
+              "Human errors such as accidentally deleting or overwriting important files.",
+              "Malicious actions by internal users that can damage business data and systems.",
+              "Cyberattacks caused by compromised devices, weak passwords, phishing scams, and malicious links.",
+            ],
+          },
+        ],
+      },
+
+      {
+        eyebrow: "Data Protection Challenges",
+
+        title: "Overcome the Limitations of Traditional Backup Systems",
+
+        description:
+          "Your business data is the lifeblood of your organisation, and the amount of information being collected and stored continues to grow. Traditional backup systems may expose businesses to operational delays, data loss, maintenance costs, and complicated recovery processes.",
+
+        media: {
+          type: "image",
+          src: "/images/products/ccp-4.svg",
+        },
+
+        imagePosition: "left",
+
+        lists: [
+          {
+            title: "Common Drawbacks",
+
+            items: [
+              "Inadequate or infrequent backup processes",
+              "High cost and complexity of maintenance",
+              "Complicated backup and restoration procedures",
+            ],
+          },
+        ],
+      },
+
+      {
+        eyebrow: "Protection of Data",
+
+        title: "Complete Cyber Cloud Protection Solutions",
+
+        description:
+          "Protect your organisation with a complete range of cloud-based data protection, recovery, collaboration, and cybersecurity services.",
+
+        lists: [
+          {
+            title: "Our Cyber Protection Services",
+
+            items: [
+              "Integrated Data Protection and Cybersecurity",
+              "Disaster Recovery as a Service",
+              "File Sync and Share",
+              "Cloud Backup",
+            ],
+          },
+        ],
+      },
+    ],
+
+    seo: {
+      title: "Cyber Cloud and Cyber Protection Services | iOneSoft Solutions",
+
+      description:
+        "Protect your business with integrated cybersecurity, cloud backup, ransomware defence, disaster recovery, file sharing, and complete data protection solutions.",
+
+      keywords: [
+        "cyber security services",
+        "cyber cloud protection",
+        "data protection solutions",
+        "cloud backup services",
+        "ransomware protection",
+        "malware protection",
+        "disaster recovery as a service",
+        "business data backup",
+        "file sync and share",
+        "cybersecurity Sri Lanka",
+      ],
+
+      canonical:
+        "https://www.ionesoftsolutions.com/products/cyber-security-solution",
+
+      robots: {
+        index: true,
+        follow: true,
       },
     },
   },

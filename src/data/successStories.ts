@@ -16,7 +16,7 @@ export const successStory: SuccessStory[] = [
     subtitle: "SilverNeedle Hospitality Group",
     description:
       "SilverNeedle Hospitality Group was satisfied with iOneSoft project delivery for its swift agility and ability to meet timelines when no other vendors were able to do it.",
-    image: "/images/about/hotel-automation.webp",
+    image: "/images/about/sn.svg",
     icon: Hotel,
     stats: [
       {
@@ -36,7 +36,7 @@ export const successStory: SuccessStory[] = [
     subtitle: "End-to-End Kiosk Implementation",
     description:
       "First in Singapore to implement an operational end-to-end self check-in kiosk solution integrated with door lock systems, payment gateways, Hotel PMS, and OTAs.",
-    image: "/images/about/self-checkin.webp",
+    image: "/images/about/sc.svg",
     icon: MonitorSmartphone,
     stats: [
       {

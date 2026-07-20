@@ -33,12 +33,12 @@ export const privacyPolicyData = {
     {
       title: "Storing of information",
       description:
-        "To provide better service, we store personal information provided by users. It is stored as securely as possible and is only used for its intended purpose.",
+        "To provide better service, we store personal information provided by the users. It is stored as securely as possible and is only used for its intended purpose. We may store users correspondence with the company but only if that is considered necessary to provide better service in the future.",
     },
     {
       title: "Security of Internet",
       description:
-        "We do our utmost to guard your rights and privacy when using our sites. However, due to the nature of the Internet, information transmission over it cannot be guaranteed to be 100% secure.",
+        "We do our utmost to guard your rights and privacy when using our sites. However, due to nature of Internet, information transmission over it cannot be guaranteed to be 100% secure and users give their personal information at their own risk. Note also that if you make your own private information available for instance in a guestbook, message board or classified.",
     },
   ],
 };

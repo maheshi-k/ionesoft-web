@@ -82,6 +82,8 @@ export default async function ProductPage({ params }: PageProps) {
               {product.secondaryButtonText && (
                 <Link
                   href={product.secondaryButtonHref ?? "/demo"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="rounded-xl border border-[var(--primary-bg)] px-7 py-4 text-[var(--text-dark)] lg:text-[var(--primary-text)] transition hover:bg-[var(--primary-text)] hover:text-white"
                 >
                   {product.secondaryButtonText}
@@ -127,22 +129,20 @@ export default async function ProductPage({ params }: PageProps) {
               )}
 
               {section.features && section.features.length > 0 && (
-                <div className="mt-8 grid gap-6 md:grid-cols-2">
+                <div className="mt-8 grid gap-4 md:grid-cols-2">
                   {section.features.map((feature) => {
                     const Icon = feature.icon;
 
                     return (
                       <div
                         key={feature.title}
-                        className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm transition hover:shadow-md"
+                        className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3"
                       >
-                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[var(--primary-cover-bg)]">
-                          <Icon className="h-7 w-7 text-[var(--primary-text)]" />
-                        </div>
+                        <Icon className="h-5 w-5 shrink-0 text-[var(--primary)]" />
 
-                        <h3 className="text-lg font-medium text-gray-900">
+                        <span className="font-medium text-gray-900">
                           {feature.title}
-                        </h3>
+                        </span>
                       </div>
                     );
                   })}
@@ -186,6 +186,8 @@ export default async function ProductPage({ params }: PageProps) {
                       <Link
                         key={button.title}
                         href={button.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="group flex items-center gap-5 rounded-2xl border border-gray-200 bg-white px-8 py-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-[#649B27] hover:shadow-xl"
                       >
                         <Icon className="h-9 w-9 text-[var(--primary-text)] transition-transform duration-300 group-hover:scale-110" />
@@ -222,11 +224,12 @@ export default async function ProductPage({ params }: PageProps) {
                 />
               )}
 
-              {section.media?.type === "youtube" && (
+              {section.media?.type === "youtube" && section.media.src && (
                 <iframe
                   className="aspect-video w-full rounded-3xl"
                   src={section.media.src}
                   title={section.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
               )}
@@ -236,7 +239,9 @@ export default async function ProductPage({ params }: PageProps) {
           return (
             <section
               key={index}
-              className="lg:my-16 grid items-center gap-10 lg:grid-cols-2"
+              className={`lg:my-2 grid items-center gap-10 ${
+                Media ? "lg:grid-cols-2" : "grid-cols-1"
+              }`}
             >
               <div
                 className={
@@ -246,13 +251,15 @@ export default async function ProductPage({ params }: PageProps) {
                 {Content}
               </div>
 
-              <div
-                className={
-                  imageLeft ? "order-2 lg:order-1" : "order-2 lg:order-2"
-                }
-              >
-                {Media}
-              </div>
+              {Media && (
+                <div
+                  className={
+                    imageLeft ? "order-2 lg:order-1" : "order-2 lg:order-2"
+                  }
+                >
+                  {Media}
+                </div>
+              )}
             </section>
           );
         })}

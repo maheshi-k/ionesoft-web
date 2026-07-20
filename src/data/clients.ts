@@ -29,4 +29,9 @@ export const clients = [
     name: "3CX",
     logo: "/images/brands/6.webp",
   },
+  {
+    id: 7,
+    name: "Casaba",
+    logo: "/images/brands/7.webp",
+  },
 ];

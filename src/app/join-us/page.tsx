@@ -230,13 +230,13 @@ export default function CareerPage() {
         </section>
 
         {/* CTA */}
-        <section className="mt-10 lg:mt-20 relative overflow-hidden h-[370px] lg:h-[340px]">
+        <section className="relative mt-10 h-[370px] overflow-hidden bg-[#F7F8F5] lg:mt-20 lg:h-[340px]">
           <Image
             src={careerData.cta.image}
             alt={careerData.cta.title}
             fill
             priority
-            className="object-cover"
+            className="hidden object-cover lg:block"
           />
 
           <div className="absolute md:inset-0 md:bg-white/50 lg:bg-white/20 " />

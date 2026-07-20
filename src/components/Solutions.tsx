@@ -62,6 +62,21 @@ export default function Solutions() {
             </article>
           ))}
         </div>
+
+        {/*View more */}
+        <div className="mt-14 text-center">
+          <p className="mb-6 text-gray-600 text-lg ">
+            Explore our complete range of software solutions and products.
+          </p>
+
+          <Link
+            href="/products"
+            className="inline-flex items-center gap-3 rounded-full bg-[var(--primary-bg)] px-6 py-3 text-lg font-semibold text-white transition hover:bg-[var(--primary-hover)]"
+          >
+            View More Products
+            <ArrowRight size={18} />
+          </Link>
+        </div>
       </div>
     </section>
   );

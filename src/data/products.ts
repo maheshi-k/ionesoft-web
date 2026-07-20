@@ -13,7 +13,7 @@ export const products: Product[] = [
     id: 2,
     title: "Leenira Salon & Spa Software",
     description:
-      "A smart cloud-based salon software with booking, inventory and financial management.",
+      "A smart Cloud Based Salon software which features client bookings, marketing, inventory control and financial management.",
     image: "/images/products/Leenira.webp",
     href: "/products/leenira",
   },
@@ -73,6 +73,22 @@ export const products: Product[] = [
     image: "/images/products/eguest.webp",
     href: "/products/eguestwishes",
   },
+  {
+    id: 8,
+    title: "Cyber Cloud and Cyber Protection Services",
+    description:
+      "A complete Cyber protection service that offers Integrated Data Protection and Cybersecurity.",
+    image: "/images/products/ccp.svg",
+    href: "/products/cyber",
+  },
+  // {
+  //   id: 9,
+  //   title: "Smart Technology",
+  //   description:
+  //     "Smart technology helps to monitor and manage day to day operations while increasing operational efficiency, redistributing energy, space and more.",
+  //   image: "/images/products/smart.webp",
+  //   href: "/products/smart",
+  // },
 
   // {
   //   id: 9,

@@ -48,7 +48,7 @@ export const contactData = {
       {
         country: "SRI LANKA",
         address:
-          "417, Rohana Wilathgamuwa Mawatha, Welivita Kaduwela, Sri Lanka",
+          "417, Rohana Wilathgamuwa Mawatha, Welivita, Kaduwela, Sri Lanka, 10640",
       },
     ],
   },
@@ -63,7 +63,7 @@ export const contactData = {
       },
       {
         country: "SRI LANKA",
-        phone: "+94 11 260 6050",
+        phone: "(+94) 11 21 60050",
         email: "info@ionesoftsolutions.com",
       },
     ],

@@ -22,16 +22,37 @@ export default function AboutHero() {
               </span>
             </h1>
 
-            <p className="mt-8 max-w-xl text-lg leading-8 text-gray-600">
-              iOneSoft Solutions is a Singapore-based Software Development
-              company and Information Technology (IT) firm, incorporated in
-              August 2012.Our team consist of consultants with expertise of more
-              than 15 years from various industry and our development centre in
-              Sri Lanka consists of young and vibrant with technical expertise.
-            </p>
+            <div className="mt-8 max-w-xl text-lg leading-8 text-gray-600">
+              <p>
+                iOneSoft Solutions is a Singapore software development company
+                and information technology (IT) firm incorporated in August
+                2012.
+              </p>
+              <br></br>
+
+              <p>
+                {" "}
+                Our team consists of consultants with more than 15 years of
+                industry expertise, while our development center in Sri Lanka is
+                made up of young, vibrant professionals with strong technical
+                expertise. Together, we provide cost-effective software
+                solutions, consulting, implementation, and maintenance services
+                across a wide range of industries and applications.
+              </p>
+              <br></br>
+
+              <p>
+                {" "}
+                Today, we collaborate with established partners to deliver
+                out-of-the-box solutions to clients across Singapore and the
+                Asia-Pacific region, reducing total cost of ownership while
+                providing responsive local support for their business needs.
+              </p>
+              <br></br>
+            </div>
 
             {/* Stats */}
-            <div className="mt-12 grid gap-5 sm:grid-cols-2">
+            <div className="mt-8 grid gap-5 sm:grid-cols-2">
               {aboutHeroStats.map((item) => (
                 <StatCard key={item} title={item} />
               ))}

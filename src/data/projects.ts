@@ -15,9 +15,23 @@ export const projects = [
   },
   {
     id: 3,
-    title: "Contactless Temperature And Facial Recognition (CTAF)",
-    category: "IOS",
-    image: "/images/CTF-Hero.webp",
-    href: "/products/Contactless-temp",
+    title: "Cyber Cloud and Cyber Protection Services",
+    category: "Service",
+    image: "/images/products/ccp.svg",
+    href: "/products/cyber",
+  },
+  {
+    id: 4,
+    title: "Smart Technology",
+    category: "IOT",
+    image: "/images/service/ST-hero.webp",
+    href: "/services/Smart-Technology-and-Solution",
+  },
+  {
+    id: 5,
+    title: "Document Management Solution",
+    category: "Service",
+    image: "/images/products/D2C-hero.webp",
+    href: "/products/dms",
   },
 ];
