@@ -12,7 +12,7 @@ export const productDetails: Record<string, ProductDetail> = {
   clovatel: {
     title: "Hotel Management Solutions – CLOVATEL",
     subtitle: "Clovatel Hotel Management System and Mobile Check-In",
-    heroImage: "/images/products/HMS-hero.webp",
+    heroImage: "/images/products/HMSHero.webp",
     description:
       "A complete cloud-based hotel management solution designed to streamline operations and elevate guest experiences.",
 
