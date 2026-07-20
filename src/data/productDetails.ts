@@ -218,7 +218,7 @@ export const productDetails: Record<string, ProductDetail> = {
   dms: {
     title: "Document Management Solution",
     subtitle: "Digital Document Solutions",
-    heroImage: "/images/products/DMS-hero.webp",
+    heroImage: "/images/products/DMS-Hero.webp",
     description:
       "A secure, cloud-based document management solution that helps businesses organize, store, manage, and retrieve documents efficiently. Streamline workflows, enhance collaboration, strengthen document security, and improve productivity with centralized access, version control, and automated document processes.",
 
