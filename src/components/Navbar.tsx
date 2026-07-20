@@ -32,76 +32,55 @@ export default function Navbar() {
       </Link>
 
       {/* Desktop Menu */}
-      <div className="hidden items-center gap-8 lg:flex">
+      <div className="hidden lg:flex gap-8 items-center">
+        {" "}
         <div className="flex gap-8 text-lg">
+          {" "}
           {menuItems.map((item) =>
             item.children ? (
-              <div
-                key={item.title}
-                className="group relative"
-                onMouseEnter={() => setOpenDropdown(item.title)}
-                onMouseLeave={() => setOpenDropdown(null)}
-              >
-                <button
-                  type="button"
-                  onClick={() =>
-                    setOpenDropdown((current) =>
-                      current === item.title ? null : item.title,
-                    )
-                  }
-                  aria-expanded={openDropdown === item.title}
-                  className="flex items-center gap-1 font-semibold transition-colors hover:text-[var(--primary-hover)]"
-                >
-                  <span>{item.title}</span>
-
-                  <ChevronDown
-                    size={16}
-                    className={`transition-transform duration-200 ${
-                      openDropdown === item.title ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-
-                <div
-                  className={`absolute left-0 top-full z-50 w-80 pt-2 drop-shadow-sm transition-all duration-200 ${
-                    openDropdown === item.title
-                      ? "visible opacity-100"
-                      : "invisible opacity-0"
-                  }`}
-                >
-                  <div className="overflow-hidden rounded-lg bg-[var(--background)] shadow-lg">
+              <div key={item.title} className="relative group">
+                {" "}
+                <div className="flex items-center gap-1 font-semibold hover:text-[var(--primary-hover)] transition-colors">
+                  {" "}
+                  <Link href={item.url}>{item.title}</Link>{" "}
+                  <ChevronDown size={16} />{" "}
+                </div>{" "}
+                <div className=" absolute left-0 top-full pt-2 w-80 opacity-0 invisible drop-shadow-sm group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 ">
+                  {" "}
+                  <div className="bg-[var(--background)] rounded-lg shadow-lg overflow-hidden">
+                    {" "}
                     {item.children.map((child) => (
                       <Link
                         key={child.title}
                         href={child.url!}
-                        onClick={() => setOpenDropdown(null)}
-                        className="block border-b border-[#f2f5ed] px-4 py-3 hover:bg-[var(--primary-hover-opc)]"
+                        className="block px-4 py-3 border-b border-[#f2f5ed] hover:bg-[var(--primary-hover-opc)]"
                       >
-                        {child.title}
+                        {" "}
+                        {child.title}{" "}
                       </Link>
-                    ))}
-                  </div>
-                </div>
+                    ))}{" "}
+                  </div>{" "}
+                </div>{" "}
               </div>
             ) : (
               <Link
                 key={item.title}
                 href={item.url!}
-                className="font-semibold transition-colors hover:text-[var(--primary-hover)]"
+                className="font-semibold hover:text-[var(--primary-hover)] transition-colors"
               >
-                {item.title}
+                {" "}
+                {item.title}{" "}
               </Link>
             ),
-          )}
-        </div>
-
+          )}{" "}
+        </div>{" "}
         <Link
           href={headerData.ctaButton.href}
           className="flex items-center gap-3 rounded-lg bg-[var(--primary-bg)] px-5 py-2 text-lg font-semibold text-white transition-colors hover:bg-[var(--primary-hover)]"
         >
-          {headerData.ctaButton.text}
-          <ArrowRight size={18} />
-        </Link>
+          {" "}
+          {headerData.ctaButton.text} <ArrowRight size={18} />{" "}
+        </Link>{" "}
       </div>
 
       {/* Mobile Toggle */}
