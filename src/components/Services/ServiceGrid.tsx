@@ -17,7 +17,7 @@ export default function ServiceGrid() {
           className="z-10 object-cover"
         />
 
-        <div className="relative z-10 container mx-auto max-w-[90%] px-4">
+        <div className="relative z-10 container mx-auto max-w-[90%] lg:max-w-[80%] px-4">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             {/* Left Content */}
             <div className="flex flex-col items-center text-center lg:items-start lg:text-left">

@@ -17,7 +17,7 @@ export default function ProductGrid() {
           className="-z-10 object-cover"
         />
 
-        <div className="relative z-10 mx-auto grid max-w-[90%] items-center gap-12 px-6 py-12 lg:grid-cols-2 lg:py-20">
+        <div className="relative z-10 mx-auto grid max-w-[90%] lg:max-w-[80%] items-center gap-12 px-6 py-12 lg:grid-cols-2 lg:py-20">
           {/* Left */}
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
             <h1 className="text-4xl font-bold text-black md:text-5xl">
