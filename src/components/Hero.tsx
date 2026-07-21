@@ -9,14 +9,14 @@ type HeroProps = {
 export default function Hero({ data }: HeroProps) {
   return (
     <section className="flex flex-col items-center text-center py-20 px-6 relative">
-      <div className="absolute lg:left-[8%] left-[3%] lg:top-40 top-[1%]">
+      <div className="absolute lg:left-[8%] left-[3%] lg:top-20 top-[1%]">
         <DotPattern />
       </div>
 
       <div className="absolute md:right-[8%] right-[3%] md:bottom-10 bottom-[1%]">
         <DotPattern />
       </div>
-      <div className="flex flex-col md:max-w-[70%]">
+      <div className="flex flex-col md:max-w-[80%]">
         {/* Badge */}
         <p className="text-lg md:text-xl lg:text-[28px] text-[var(--primary-text)] font-semibold uppercase tracking-wide mb-4">
           {data.badge}

@@ -136,7 +136,7 @@ export default async function ProductPage({ params }: PageProps) {
                     return (
                       <div
                         key={feature.title}
-                        className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3"
+                        className="flex items-center gap-3 bg-white px-4 py-3"
                       >
                         <Icon className="h-5 w-5 shrink-0 text-[var(--primary)]" />
 

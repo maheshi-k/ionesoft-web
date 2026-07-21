@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "../../public/images/Logo.webp";
@@ -13,9 +14,23 @@ import { headerData } from "../data/header";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const pathname = usePathname();
 
   const toggleDropdown = (title: string) => {
     setOpenDropdown(openDropdown === title ? null : title);
+  };
+
+  const isMenuActive = (url: string, children?: { url?: string }[]) => {
+    const isParentActive =
+      pathname === url || (url !== "/" && pathname.startsWith(`${url}/`));
+
+    const isChildActive = children?.some(
+      (child) =>
+        child.url &&
+        (pathname === child.url || pathname.startsWith(`${child.url}/`)),
+    );
+
+    return isParentActive || isChildActive;
   };
 
   return (
@@ -32,55 +47,93 @@ export default function Navbar() {
       </Link>
 
       {/* Desktop Menu */}
-      <div className="hidden lg:flex gap-8 items-center">
-        {" "}
+      <div className="hidden items-center gap-8 lg:flex">
         <div className="flex gap-8 text-lg">
-          {" "}
-          {menuItems.map((item) =>
-            item.children ? (
-              <div key={item.title} className="relative group">
-                {" "}
-                <div className="flex items-center gap-1 font-semibold hover:text-[var(--primary-hover)] transition-colors">
-                  {" "}
-                  <Link href={item.url}>{item.title}</Link>{" "}
-                  <ChevronDown size={16} />{" "}
-                </div>{" "}
-                <div className=" absolute left-0 top-full pt-2 w-80 opacity-0 invisible drop-shadow-sm group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 ">
-                  {" "}
-                  <div className="bg-[var(--background)] rounded-lg shadow-lg overflow-hidden">
-                    {" "}
+          {menuItems.map((item) => {
+            const isDropdownOpen = openDropdown === item.title;
+            const isActive = isMenuActive(item.url, item.children);
+
+            return item.children ? (
+              <div
+                key={item.title}
+                className="group relative"
+                onMouseEnter={() => setOpenDropdown(item.title)}
+                onMouseLeave={() =>
+                  setOpenDropdown((current) =>
+                    current === item.title ? null : current,
+                  )
+                }
+              >
+                <div
+                  className={`flex items-center gap-1 font-semibold transition-colors ${
+                    isActive || isDropdownOpen
+                      ? "text-[var(--primary-hover)]"
+                      : "hover:text-[var(--primary-hover)]"
+                  }`}
+                >
+                  {/* Parent page link */}
+                  <Link href={item.url}>{item.title}</Link>
+
+                  {/* Dropdown click button */}
+                  <button
+                    type="button"
+                    onClick={() => toggleDropdown(item.title)}
+                    aria-label={`Toggle ${item.title} menu`}
+                    aria-expanded={isDropdownOpen}
+                    className="flex items-center justify-center"
+                  >
+                    <ChevronDown
+                      size={16}
+                      className={`transition-transform duration-200 ${
+                        isDropdownOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                </div>
+
+                <div
+                  className={`absolute left-0 top-full z-50 w-80 pt-2 drop-shadow-sm transition-all duration-200
+              group-hover:visible group-hover:opacity-100
+              ${isDropdownOpen ? "visible opacity-100" : "invisible opacity-0"}
+            `}
+                >
+                  <div className="overflow-hidden rounded-lg bg-[var(--background)] shadow-lg">
                     {item.children.map((child) => (
                       <Link
                         key={child.title}
                         href={child.url!}
-                        className="block px-4 py-3 border-b border-[#f2f5ed] hover:bg-[var(--primary-hover-opc)]"
+                        onClick={() => setOpenDropdown(null)}
+                        className="block border-b border-[#f2f5ed] px-4 py-3 hover:bg-[var(--primary-hover-opc)]"
                       >
-                        {" "}
-                        {child.title}{" "}
+                        {child.title}
                       </Link>
-                    ))}{" "}
-                  </div>{" "}
-                </div>{" "}
+                    ))}
+                  </div>
+                </div>
               </div>
             ) : (
               <Link
                 key={item.title}
                 href={item.url!}
-                className="font-semibold hover:text-[var(--primary-hover)] transition-colors"
+                className={`font-semibold transition-colors ${
+                  isActive
+                    ? "text-[var(--primary-hover)]"
+                    : "hover:text-[var(--primary-hover)]"
+                }`}
               >
-                {" "}
-                {item.title}{" "}
+                {item.title}
               </Link>
-            ),
-          )}{" "}
-        </div>{" "}
+            );
+          })}
+        </div>
+
         <Link
           href={headerData.ctaButton.href}
           className="flex items-center gap-3 rounded-lg bg-[var(--primary-bg)] px-5 py-2 text-lg font-semibold text-white transition-colors hover:bg-[var(--primary-hover)]"
         >
-          {" "}
-          {headerData.ctaButton.text} <ArrowRight size={18} />{" "}
-        </Link>{" "}
+          {headerData.ctaButton.text}
+          <ArrowRight size={18} />
+        </Link>
       </div>
 
       {/* Mobile Toggle */}

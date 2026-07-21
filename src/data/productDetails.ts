@@ -34,19 +34,19 @@ export const productDetails: Record<string, ProductDetail> = {
         features: [
           {
             title: "STAAH: Channel Manager & Booking Engine",
-            icon: FileText,
+            icon: CheckCircle2,
           },
           {
             title: "Accounting / ERP Integration",
-            icon: Boxes,
+            icon: CheckCircle2,
           },
           {
             title: "Rate Management",
-            icon: Boxes,
+            icon: CheckCircle2,
           },
           {
             title: "Room Inventory Management",
-            icon: Boxes,
+            icon: CheckCircle2,
           },
         ],
       },
