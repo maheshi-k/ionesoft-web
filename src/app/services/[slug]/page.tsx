@@ -280,28 +280,31 @@ export default async function ServicePage({ params }: PageProps) {
   if (!service) notFound();
 
   return (
-    <>
+    <div className="w-full max-w-full overflow-x-clip">
       <Navbar />
 
-      <main className="mx-auto w-full max-w-[75%] px-6 py-8 lg:py-0">
+      <main className="mx-auto w-full overflow-x-hidden px-5 py-8 sm:px-6 lg:max-w-[75%] lg:px-0 lg:py-0">
         {/* Hero */}
-        <section className="grid items-center gap-8 lg:grid-cols-2">
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-            <span className="font-semibold uppercase tracking-wide text-[var(--primary-text)]">
+        <section className="grid w-full items-center gap-8 lg:grid-cols-2">
+          {/* Hero content */}
+          <div className="min-w-0 text-center lg:text-left">
+            <span className="block font-semibold uppercase tracking-wide text-[var(--primary-text)]">
               {service.subtitle}
             </span>
 
-            <h1 className="mb-6 text-5xl font-bold">{service.title}</h1>
+            <h1 className="mt-3 break-words text-4xl font-bold leading-[1.1] sm:text-5xl lg:mb-6 lg:text-6xl">
+              {service.title}
+            </h1>
 
-            <p className="mt-4 leading-8 text-slate-600">
+            <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8 lg:mx-0">
               {service.description}
             </p>
 
-            <div className="mt-5 flex flex-wrap gap-4">
+            <div className="mt-6 flex flex-wrap justify-center gap-4 lg:justify-start">
               {service.primaryButtonText && (
                 <Link
                   href={service.primaryButtonHref ?? "/contact"}
-                  className="rounded-xl bg-[var(--primary-bg)] px-7 py-4 text-white transition hover:opacity-90"
+                  className="rounded-xl bg-[var(--primary-bg)] px-6 py-3 text-white transition hover:opacity-90 sm:px-7 sm:py-4"
                 >
                   {service.primaryButtonText}
                 </Link>
@@ -312,7 +315,7 @@ export default async function ServicePage({ params }: PageProps) {
                   href={service.secondaryButtonHref ?? "/demo"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-xl border border-[var(--primary-bg)] px-7 py-4 text-[var(--primary-text)] transition hover:bg-[#78B62A] hover:text-white"
+                  className="rounded-xl border border-[var(--primary-bg)] px-6 py-3 text-[var(--primary-text)] transition hover:bg-[#78B62A] hover:text-white sm:px-7 sm:py-4"
                 >
                   {service.secondaryButtonText}
                 </Link>
@@ -320,13 +323,18 @@ export default async function ServicePage({ params }: PageProps) {
             </div>
           </div>
 
-          <Image
-            src={service.heroImage}
-            alt={service.title}
-            width={600}
-            height={500}
-            className="w-full rounded-3xl"
-          />
+          {/* Hero image */}
+          <div className="min-w-0">
+            <Image
+              src={service.heroImage}
+              alt={service.title}
+              width={600}
+              height={500}
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="h-auto w-full rounded-2xl object-contain lg:rounded-3xl"
+            />
+          </div>
         </section>
 
         {/* Dynamic Sections */}
@@ -336,6 +344,6 @@ export default async function ServicePage({ params }: PageProps) {
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 }
