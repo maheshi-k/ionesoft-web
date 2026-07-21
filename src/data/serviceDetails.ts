@@ -16,7 +16,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     description:
       "From consulting to development, our services are designed to empower your business with innovation, efficiency, and long-term growth.",
     primaryButtonText: "Explore Solutions",
-    primaryButtonHref: "/products",
+    primaryButtonHref: "/services",
 
     // secondaryButtonText: "Get in Touch",
     // secondaryButtonHref: "/contact",

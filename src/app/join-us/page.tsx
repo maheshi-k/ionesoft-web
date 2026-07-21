@@ -1,11 +1,12 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronDown, CircleCheck } from "lucide-react";
+import { ChevronDown, CircleCheck, ArrowRight } from "lucide-react";
 
 import Navbar from "@/src/components/Navbar";
 import Footer from "@/src/components/Footer";
+import EmailButton from "@/src/components/EmailButton";
 import { careerData } from "@/src/data/careers";
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Career | Come and Join us | iOnesoft Solutions",
@@ -63,6 +64,11 @@ export const metadata: Metadata = {
 };
 
 export default function CareerPage() {
+  const firstJobEmailHref =
+    careerData.positions.jobs.find((job) =>
+      job.buttonHref.startsWith("mailto:"),
+    )?.buttonHref ?? "mailto:info@ionesoftsolutions.com";
+
   return (
     <>
       <Navbar />
@@ -128,7 +134,7 @@ export default function CareerPage() {
         {/* Why Work */}
         <section
           id="why-work"
-          className="mx-auto max-w-7xl px-6 lg:py-20 md:py-10 text-center"
+          className="mx-auto max-w-7xl px-6 text-center md:py-10 lg:py-20"
         >
           <span className="font-semibold text-[var(--primary-text)]">
             {careerData.whyWork.eyebrow}
@@ -182,11 +188,15 @@ export default function CareerPage() {
           <div className="mt-12 flex flex-wrap justify-center gap-6">
             {careerData.positions.jobs.map((job) => {
               const Icon = job.icon;
+              const isEmailLink = job.buttonHref.startsWith("mailto:");
+              const isExternalLink =
+                job.buttonHref.startsWith("http://") ||
+                job.buttonHref.startsWith("https://");
 
               return (
                 <div
                   key={job.title}
-                  className="w-full max-w-sm rounded-2xl border border-gray-200 bg-white p-8 text-left shadow-sm"
+                  className="w-full max-w-md rounded-2xl flex flex-col items-center justify-center border border-gray-200 bg-white p-8 text-left shadow-sm"
                 >
                   <div className="flex items-center gap-4">
                     <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[var(--primary-cover-bg)]">
@@ -197,6 +207,7 @@ export default function CareerPage() {
                       <h3 className="text-xl font-bold text-gray-900">
                         {job.title}
                       </h3>
+
                       <p className="text-sm text-gray-600">{job.type}</p>
                     </div>
                   </div>
@@ -211,18 +222,29 @@ export default function CareerPage() {
                         key={item}
                         className="flex items-center gap-2 text-sm text-gray-700"
                       >
-                        <CircleCheck className="h-4 w-4 text-[var(--primary-text)]" />
-                        {item}
+                        <CircleCheck className="h-4 w-4 shrink-0 text-[var(--primary-text)]" />
+
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <Link
-                    href={job.buttonHref}
-                    className="mt-7 flex items-center justify-center rounded-[10px] border border-[var(--primary-bg)] p-[10px] font-semibold text-[var(--primary-text)]"
-                  >
-                    {job.buttonText}
-                  </Link>
+                  {isEmailLink ? (
+                    <EmailButton
+                      href={job.buttonHref}
+                      text={job.buttonText}
+                      variant="apply"
+                    />
+                  ) : (
+                    <Link
+                      href={job.buttonHref}
+                      target={isExternalLink ? "_blank" : undefined}
+                      rel={isExternalLink ? "noopener noreferrer" : undefined}
+                      className="mt-7 flex items-center justify-center rounded-[10px] border border-[var(--primary-bg)] p-[10px] font-semibold text-[var(--primary-text)] transition-colors hover:bg-[var(--primary-bg)] hover:text-white"
+                    >
+                      {job.buttonText}
+                    </Link>
+                  )}
                 </div>
               );
             })}
@@ -230,19 +252,18 @@ export default function CareerPage() {
         </section>
 
         {/* CTA */}
-        <section className="relative mt-10 h-[370px] overflow-hidden bg-[#F7F8F5] lg:mt-20 lg:h-[340px]">
+        <section className="relative mt-10 min-h-[420px] overflow-hidden bg-[#F7F8F5] lg:mt-20 lg:min-h-[340px]">
           <Image
             src={careerData.cta.image}
             alt={careerData.cta.title}
             fill
-            priority
             className="hidden object-cover lg:block"
           />
 
-          <div className="absolute md:inset-0 md:bg-white/50 lg:bg-white/20 " />
+          <div className="absolute inset-0 bg-white/50 lg:bg-white/20" />
 
-          <div className="relative mx-auto flex min-h-[420px] max-w-7xl md:items-center px-6 py-10 lg:py-20">
-            <div className="max-w-2xl">
+          <div className="relative mx-auto flex min-h-[420px] max-w-7xl items-center px-6 py-10 lg:min-h-[340px] lg:py-20">
+            <div className="mx-auto flex max-w-2xl flex-col items-center text-center lg:mx-0 lg:items-start lg:text-left">
               <h2 className="text-4xl font-bold leading-tight text-gray-900">
                 {careerData.cta.title}
               </h2>

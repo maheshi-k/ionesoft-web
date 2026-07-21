@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone, ChevronUp } from "lucide-react";
 import { footerData } from "../data/footer";
+import EmailButton from "./EmailButton";
 
 export default function Footer() {
   return (
@@ -28,6 +29,20 @@ export default function Footer() {
             <div className="mt-6 flex gap-3">
               {footerData.socials.map((social) => {
                 const Icon = social.icon;
+                const isEmail = social.href.startsWith("mailto:");
+
+                if (isEmail) {
+                  return (
+                    <EmailButton
+                      key={social.name}
+                      href={social.href}
+                      ariaLabel={social.name}
+                      variant="icon"
+                    >
+                      <Icon className="h-4 w-4 text-[var(--primary-text)] transition-colors group-hover:text-white" />
+                    </EmailButton>
+                  );
+                }
 
                 return (
                   <Link
@@ -36,9 +51,9 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.name}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--primary-bg)] bg-white shadow transition hover:bg-[#649B27]"
+                    className="group flex h-10 w-10 items-center justify-center rounded-full border border-[var(--primary-bg)] bg-white shadow transition-colors hover:bg-[var(--primary-bg)]"
                   >
-                    <Icon className="h-4 w-4 text-[var(--primary-text)] transition-colors hover:text-white" />
+                    <Icon className="h-4 w-4 text-[var(--primary-text)] transition-colors group-hover:text-white" />
                   </Link>
                 );
               })}
