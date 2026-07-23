@@ -125,8 +125,7 @@ export default function ContactForm() {
     try {
       setIsSubmitting(true);
 
-      const apiUrl =
-        process.env.IONESOFT_PUBLIC_API_URL ?? "http://localhost:5000";
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000";
 
       const response = await fetch(`${apiUrl}/api/contact`, {
         method: "POST",
