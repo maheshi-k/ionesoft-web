@@ -43,6 +43,9 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
   const validateForm = () => {
     const newErrors: FormErrors = {};
 
@@ -113,21 +116,52 @@ export default function ContactForm() {
 
   const handleSubmit = async (event: FormSubmitEvent) => {
     event.preventDefault();
+    setSubmitError("");
 
     if (!validateForm()) {
       return;
     }
 
     try {
-      console.log("Form submitted:", formValues);
+      setIsSubmitting(true);
 
-      // Add your API request here.
+      const apiUrl =
+        process.env.IONESOFT_PUBLIC_API_URL ?? "http://localhost:5000";
+
+      const response = await fetch(`${apiUrl}/api/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName: formValues.firstName.trim(),
+          lastName: formValues.lastName.trim(),
+          email: formValues.email.trim(),
+          phone: formValues.phone.trim(),
+          service: formValues.service,
+          message: formValues.message.trim(),
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message ?? "Unable to submit the contact form.");
+      }
 
       setIsSubmitted(true);
       setFormValues(initialValues);
       setErrors({});
     } catch (error) {
       console.error("Unable to submit contact form:", error);
+
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again.",
+      );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -387,11 +421,21 @@ export default function ContactForm() {
           </p>
         </FormField>
 
+        {submitError && (
+          <div
+            role="alert"
+            className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+          >
+            {submitError}
+          </div>
+        )}
+
         <button
           type="submit"
+          disabled={isSubmitting}
           className="w-full rounded-lg bg-[var(--primary-bg)] py-4 font-semibold text-white transition hover:bg-[#649B27] focus:outline-none focus:ring-2 focus:ring-[#78B62A] focus:ring-offset-2"
         >
-          Submit Form
+          {isSubmitting ? "Submitting..." : "Submit Form"}
         </button>
       </form>
     </div>
