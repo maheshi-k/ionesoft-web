@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { ChangeEvent, ComponentProps, ReactNode } from "react";
 import Link from "next/link";
+import { parsePhoneNumberFromString } from "libphonenumber-js";
 import {
   CheckCircle2,
   Mail,
@@ -51,7 +52,6 @@ export default function ContactForm() {
 
     const namePattern = /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$/;
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phonePattern = /^\+?[0-9\s()-]{7,20}$/;
 
     if (!formValues.firstName.trim()) {
       newErrors.firstName = "First name is required.";
@@ -75,10 +75,20 @@ export default function ContactForm() {
       newErrors.email = "Enter a valid email address.";
     }
 
-    if (!formValues.phone.trim()) {
+    const phoneValue = formValues.phone.trim();
+
+    if (!phoneValue) {
       newErrors.phone = "Phone number is required.";
-    } else if (!phonePattern.test(formValues.phone.trim())) {
-      newErrors.phone = "Enter a valid phone number.";
+    } else if (!phoneValue.startsWith("+")) {
+      newErrors.phone =
+        "Include the international country code, for example +94, +44, or +1.";
+    } else {
+      const parsedPhone = parsePhoneNumberFromString(phoneValue);
+
+      if (!parsedPhone?.isValid()) {
+        newErrors.phone =
+          "Enter a valid international phone number with the country code.";
+      }
     }
 
     if (!formValues.service) {
@@ -122,6 +132,18 @@ export default function ContactForm() {
       return;
     }
 
+    const parsedPhone = parsePhoneNumberFromString(formValues.phone.trim());
+
+    if (!parsedPhone?.isValid()) {
+      setErrors((previous) => ({
+        ...previous,
+        phone:
+          "Enter a valid international phone number with the country code.",
+      }));
+
+      return;
+    }
+
     try {
       setIsSubmitting(true);
 
@@ -136,7 +158,7 @@ export default function ContactForm() {
           firstName: formValues.firstName.trim(),
           lastName: formValues.lastName.trim(),
           email: formValues.email.trim(),
-          phone: formValues.phone.trim(),
+          phone: parsedPhone.number,
           service: formValues.service,
           message: formValues.message.trim(),
         }),
@@ -145,7 +167,15 @@ export default function ContactForm() {
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.message ?? "Unable to submit the contact form.");
+        const backendErrors = Array.isArray(result.errors)
+          ? result.errors.join(" ")
+          : "";
+
+        throw new Error(
+          backendErrors ||
+            result.message ||
+            "Unable to submit the contact form.",
+        );
       }
 
       setIsSubmitted(true);
@@ -360,13 +390,20 @@ export default function ContactForm() {
               type="tel"
               value={formValues.phone}
               onChange={handleChange}
-              placeholder="Phone Number"
+              placeholder="+94 71 234 5678"
               autoComplete="tel"
+              inputMode="tel"
               aria-required="true"
               aria-invalid={Boolean(errors.phone)}
-              aria-describedby={errors.phone ? "phone-error" : undefined}
+              aria-describedby={errors.phone ? "phone-error" : "phone-help"}
               className={inputClassName("phone")}
             />
+
+            {!errors.phone && (
+              <p id="phone-help" className="mt-1 text-xs text-gray-500">
+                Include the international country code, such as +94, +44, or +1.
+              </p>
+            )}
           </FormField>
         </div>
 
